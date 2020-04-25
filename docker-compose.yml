@@ -4,17 +4,7 @@ services:
   postgres:
     environment:
       POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=sv_SE.UTF8"
+      POSTGRES_HOST_AUTH_METHOD: trust
     image: postgres:11-alpine
-    networks:
-      - skunk-test
     ports:
       - 5432:5432
-    volumes:
-      - db-data:/var/lib/postgresql/data
-
-networks:
-  skunk-test:
-
-volumes:
-  db-data:
-
